@@ -1,0 +1,251 @@
+/* --- Variables & Global Reset --- */
+:root {
+    --primary-color: #3B7ADF; /* Medium Blue */
+    --primary-dark: #2A5A9E;
+    --secondary-color: #FFC04C; /* Accent Gold/Orange */
+    --text-dark: #333;
+    --text-light: #f4f4f4;
+    --bg-light: #f9f9f9;
+    --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: white;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- Typography --- */
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.2;
+}
+
+h1 { font-size: 3em; color: var(--text-dark); }
+h2 { font-size: 2.2em; text-align: center; margin-bottom: 50px; }
+h3 { font-size: 1.5em; }
+
+strong {
+    color: var(--primary-color);
+    font-weight: 800;
+}
+
+/* --- Buttons --- */
+.primary-cta-btn, .secondary-cta-btn {
+    display: inline-block;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    font-weight: 700;
+    margin-top: 20px;
+    border: none;
+}
+
+.primary-cta-btn {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 4px 15px rgba(59, 122, 223, 0.4);
+}
+
+.primary-cta-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(59, 122, 223, 0.6);
+}
+
+.secondary-cta-btn {
+    background: var(--secondary-color);
+    color: var(--text-dark);
+}
+
+.secondary-cta-btn:hover {
+    background: #e6b045;
+}
+
+/* --- 1. Header (Flashy and Popout) --- */
+#main-header {
+    background: white;
+    padding: 15px 0;
+    border-bottom: 1px solid #eee;
+    box-shadow: var(--shadow-light); /* Adds the 'popout' effect */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transform: translateY(-100%); /* Initial state for animation */
+    transition: transform 0.6s ease-out; /* CSS Transition for animation */
+}
+
+#main-header.active {
+    transform: translateY(0); /* Final state: visible */
+}
+
+#main-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8em;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-left: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover, nav ul li a.cta-link {
+    color: var(--primary-color);
+}
+
+/* --- 2. Hero Section --- */
+#hero {
+    padding: 150px 0 100px; /* Offset for fixed header */
+    background: var(--bg-light);
+}
+
+.hero-section .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 55%;
+}
+
+.hero-content h1 {
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    font-size: 1.25em;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.hero-image {
+    flex: 1;
+    min-height: 300px;
+    background: #ccc; /* Placeholder style */
+    border-radius: 8px;
+    box-shadow: var(--shadow-light);
+    background-image: url('placeholder-construction-tech.jpg'); /* Replace with actual image/illustration */
+    background-size: cover;
+    background-position: center;
+    background-color: var(--primary-color);
+}
+
+/* --- 3. Features Section --- */
+#features {
+    padding: 80px 0;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    text-align: center;
+}
+
+.feature-card {
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card i {
+    font-size: 3em;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    margin-bottom: 10px;
+}
+
+/* --- 4. Call-to-Action / Trust Section --- */
+.cta-banner {
+    background: var(--primary-color);
+    color: var(--text-light);
+    padding: 60px 0;
+    text-align: center;
+    background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url('bg-pattern.png'); /* Subtle background texture */
+}
+
+.cta-banner h3 {
+    color: white;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.cta-banner p {
+    font-size: 1.1em;
+    margin-bottom: 25px;
+}
+
+.cta-banner .secondary-cta-btn {
+    background: white;
+    color: var(--primary-color);
+}
+
+/* --- 5. Footer --- */
+footer {
+    background: var(--text-dark);
+    color: #aaa;
+    padding: 20px 0;
+}
+
+footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9em;
+}
+
+.footer-links a {
+    color: #aaa;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
